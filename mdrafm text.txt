@@ -1,0 +1,12 @@
+GA Notification https://ga.odisha.gov.in/notification/gapg-all-notifications
+
+
+FD Notification  https://finance.odisha.gov.in/financial-notification
+
+
+MdR@6%&!#$1
+
+
+
+  var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+        if (emailPattern.test(email)) {
