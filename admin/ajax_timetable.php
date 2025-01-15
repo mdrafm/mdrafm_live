@@ -442,6 +442,7 @@ if ( isset($_POST['action']) && $_POST['action'] == 'add_table'){
     $table = $_POST['table'];
     $start_time = date("H:i:s", strtotime($frm_data['class_start_time']));
     $end_time =  date("H:i:s", strtotime($frm_data['class_end_time']));
+    $no_of_session =$no_of_session==''?'7':$no_of_session;
     $table = $_POST['table'];
     $msg = '';
   
@@ -482,6 +483,7 @@ if ( isset($_POST['action']) && $_POST['action'] == 'add_table'){
     }
     //print_r($frm_data);
     //exit;
+
        $db->update($table, $frm_data,'id='.$update_id);
        $res = $db->getResult();
      // print_r($res);
@@ -498,6 +500,9 @@ if ( isset($_POST['action']) && $_POST['action'] == 'add_table'){
     //add new time table data
 
     else{
+//echo $class_remark = $_POST['class_remark'] == ''?null:$_POST['class_remark']
+      // print_r($frm_data);
+    //exit;
        
       switch ($frm_data['trng_type']) {
         //long term 
@@ -505,7 +510,7 @@ if ( isset($_POST['action']) && $_POST['action'] == 'add_table'){
           $sql = "INSERT INTO tbl_time_table (program_id,table_range_id,trng_type,training_dt, session_no,period_type,break_time,faculty_type,faculty_id, class_start_time, class_end_time, term_id, paper_id, paper_covered,session_type,other_class,class_remark,no_of_session) 
                VALUES ('".$frm_data['program_id']."','".$frm_data['table_range_id']."','".$frm_data['trng_type']."','".$frm_data['training_dt']."','".$session_no."','".$frm_data['period_type']."','".$frm_data['break']."','".$frm_data['faculty_type']."','".$frm_data['faculty_id']."','".$frm_data['class_start_time']."',
                '".$frm_data['class_end_time']."','".$frm_data['term_id']."','".$frm_data['paper_id']."',
-              '".$frm_data['paper_covered']."','".$frm_data['session_type']."','".$frm_data['other_class']."','".$frm_data['class_remark']."','".$frm_data['no_of_session']."')";
+              '".$frm_data['paper_covered']."','".$frm_data['session_type']."','".$frm_data['other_class']."','".$frm_data['class_remark']."','".$no_of_session."')";
           
           break;
        //long term in-servece
@@ -513,44 +518,44 @@ if ( isset($_POST['action']) && $_POST['action'] == 'add_table'){
             $sql = "INSERT INTO tbl_time_table (program_id,table_range_id,trng_type,training_dt, session_no,period_type,break_time,faculty_type,faculty_id, class_start_time, class_end_time, term_id, paper_id, paper_covered,session_type,other_class,class_remark,no_of_session) 
                  VALUES ('".$frm_data['program_id']."','".$frm_data['table_range_id']."','".$frm_data['trng_type']."','".$frm_data['training_dt']."','".$session_no."','".$frm_data['period_type']."','".$frm_data['break']."','".$frm_data['faculty_type']."','".$frm_data['faculty_id']."','".$frm_data['class_start_time']."',
                  '".$frm_data['class_end_time']."','".$frm_data['term_id']."','".$frm_data['paper_id']."',
-                 '".$frm_data['paper_covered']."','".$frm_data['session_type']."','".$frm_data['other_class']."','".$frm_data['class_remark']."','".$frm_data['no_of_session']."')";
+                 '".$frm_data['paper_covered']."','".$frm_data['session_type']."','".$frm_data['other_class']."','".$frm_data['class_remark']."','".$no_of_session."')";
             
             break;
         //mid term
         case '3':
             $sql = "INSERT INTO `$table` (program_id,table_range_id,trng_type,training_dt, session_no,period_type,break_time,faculty_type, faculty_id,paper_id,subject_id, class_start_time, class_end_time, paper_covered,session_type,other_class,class_remark,no_of_session) 
             VALUES ('".$frm_data['program_id']."','".$frm_data['table_range_id']."','".$frm_data['trng_type']."','".$frm_data['training_dt']."','".$session_no."','".$frm_data['period_type']."','".$frm_data['break']."','".$frm_data['faculty_type']."','".$frm_data['faculty_id']."','".$frm_data['paper_id']."','".$frm_data['subject_id']."','".$frm_data['class_start_time']."',
-            '".$frm_data['class_end_time']."','".$frm_data['paper_covered']."','".$frm_data['session_type']."','".$frm_data['other_class']."','".$frm_data['class_remark']."','".$frm_data['no_of_session']."')";
+            '".$frm_data['class_end_time']."','".$frm_data['paper_covered']."','".$frm_data['session_type']."','".$frm_data['other_class']."','".$frm_data['class_remark']."','".$no_of_session."')";
     
             break;
             case '7':
-            $sql = "INSERT INTO `$table` (program_id,table_range_id,trng_type,training_dt, session_no,period_type,break_time,faculty_type, faculty_id,paper_id,subject_id, class_start_time, class_end_time, paper_covered,session_type,other_class,class_remark,no_of_session) 
-            VALUES ('".$frm_data['program_id']."','".$frm_data['table_range_id']."','".$frm_data['trng_type']."','".$frm_data['training_dt']."','".$session_no."','".$frm_data['period_type']."','".$frm_data['break']."','".$frm_data['faculty_type']."','".$frm_data['faculty_id']."','".$frm_data['paper_id']."','".$frm_data['subject_id']."','".$frm_data['class_start_time']."',
-            '".$frm_data['class_end_time']."','".$frm_data['paper_covered']."','".$frm_data['session_type']."','".$frm_data['other_class']."','".$frm_data['class_remark']."','".$frm_data['no_of_session']."')";
+            $sql = "INSERT INTO `$table` (program_id,table_range_id,trng_type,training_dt, session_no,period_type,break_time,class_start_time, class_end_time, paper_covered,session_type,other_class,class_remark,no_of_session) 
+            VALUES ('".$frm_data['program_id']."','".$frm_data['table_range_id']."','".$frm_data['trng_type']."','".$frm_data['training_dt']."','".$session_no."','".$frm_data['period_type']."','".$frm_data['break']."','".$frm_data['class_start_time']."',
+            '".$frm_data['class_end_time']."','".$frm_data['paper_covered']."','".$frm_data['session_type']."','".$frm_data['other_class']."','".$frm_data['class_remark']."','".$no_of_session."')";
     
             break;
         //short term
         case '4':
           $sql = "INSERT INTO $table (program_id,table_range_id,trng_type,training_dt, session_no,period_type,break_time,faculty_type, faculty_id, class_start_time, class_end_time, paper_covered,session_type,other_class,class_remark,no_of_session) 
             VALUES ('".$frm_data['program_id']."','".$frm_data['table_range_id']."','".$frm_data['trng_type']."','".$frm_data['training_dt']."','".$session_no."','".$frm_data['period_type']."','".$frm_data['break']."','".$frm_data['faculty_type']."','".$frm_data['faculty_id']."','".$frm_data['class_start_time']."',
-            '".$frm_data['class_end_time']."','".$frm_data['paper_covered']."','".$frm_data['session_type']."','".$frm_data['other_class']."','".$frm_data['class_remark']."','".$frm_data['no_of_session']."')";
+            '".$frm_data['class_end_time']."','".$frm_data['paper_covered']."','".$frm_data['session_type']."','".$frm_data['other_class']."','".$frm_data['class_remark']."','".$no_of_session."')";
   
           break;
         case '5':
           $sql = "INSERT INTO $table (program_id,table_range_id,trng_type,training_dt, session_no,period_type,break_time,faculty_name, class_start_time, class_end_time, paper_covered,session_type,other_class,class_remark,no_of_session) 
             VALUES ('".$frm_data['program_id']."','".$frm_data['table_range_id']."','".$frm_data['trng_type']."','".$frm_data['training_dt']."','".$session_no."','".$frm_data['period_type']."','".$frm_data['break']."','".$frm_data['faculty_name']."','".$frm_data['class_start_time']."',
-            '".$frm_data['class_end_time']."','".$frm_data['paper_covered']."','".$frm_data['session_type']."','".$frm_data['other_class']."','".$frm_data['class_remark']."','".$frm_data['no_of_session']."')";
+            '".$frm_data['class_end_time']."','".$frm_data['paper_covered']."','".$frm_data['session_type']."','".$frm_data['other_class']."','".$frm_data['class_remark']."','".$no_of_session."')";
   
           break;
       }
       
-     // echo $sql;
+     //echo $sql;
       //exit;
        
         $db->insert_sql($sql);
   
        $res = $db->getResult();
-       //print_r($res);exit;
+      // print_r($res);exit;
       if($res){
           echo "msg#".$res[1]."#success";
           // if($res[0] > 1){
@@ -638,7 +643,7 @@ if ( isset($_POST['action']) && $_POST['action'] == 'add_sponsored_table'){
 
         $sql = "INSERT INTO tbl_sponsored_time_table (program_id,training_dt, session_no,period_type,break_time, faculty_name, class_start_time, class_end_time, paper_covered,session_type,other_class,class_remark,no_of_session) 
           VALUES ('".$frm_data['program_id']."','".$frm_data['training_dt']."','".$session_no."','".$frm_data['period_type']."','".$frm_data['break_time']."','".$frm_data['faculty_name']."','".$frm_data['class_start_time']."',
-          '".$frm_data['class_end_time']."','".$frm_data['paper_covered']."','".$frm_data['session_type']."','".$frm_data['other_class']."','".$frm_data['class_remark']."','".$frm_data['no_of_session']."')";
+          '".$frm_data['class_end_time']."','".$frm_data['paper_covered']."','".$frm_data['session_type']."','".$frm_data['other_class']."','".$frm_data['class_remark']."','".$no_of_session."')";
         
     
     //echo $sql;exit;

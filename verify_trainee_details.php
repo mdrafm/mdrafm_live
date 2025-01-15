@@ -251,10 +251,10 @@
 
                  if(data.same_addr == 1){
                     $('input[type="checkbox"]').prop('checked',true);
-                    $('#per_address1').val(data.address1).prop('disabled',true);
-                    $('#per_address2').val(data.address2).prop('disabled',true);
-                    $('#perDistrict').val(data.district_id).prop('disabled',true);
-                    $('#per_pin').val(data.pin).prop('disabled',true);
+                    //$('#per_address1').val(data.address1).prop('disabled',true);
+                  //  $('#per_address2').val(data.address2).prop('disabled',true);
+                  //  $('#perDistrict').val(data.district_id).prop('disabled',true);
+                  //  $('#per_pin').val(data.pin).prop('disabled',true);
                  }else{
                     $('input[type="checkbox"]').prop('checked',false);
                     $('#per_address1').val(data.per_address1);

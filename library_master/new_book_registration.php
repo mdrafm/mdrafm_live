@@ -429,7 +429,7 @@
         var reff_no = [];
         $('input[name^="book_reff_no[]"]').each(function() {
             reff_nos = $(this).val();
-            // alert(reff_nos);
+            //alert(reff_nos);
             reff_no.push(reff_nos);
         });
         const validationRules = ['book_ref_no|checkTextField', 'book_name|checkTextField', 'author_name|checkTextField', 'quantity|checkTextField',

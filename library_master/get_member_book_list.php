@@ -214,15 +214,16 @@ function book_request(data) {
                 //  $('#send_email').prop('disabled', true);
             },
             success: function(res) {
-                console.log(res);
+                  console.log(res);
                 let elm = res.split('#');
+                  console.log(elm[0]);
                 if (elm[0] == "success") {
 
                     get_member_book_list(book_name, author_name,acc_no);
                     sessionStorage.message = "Book issue request are successfully sent.";
                     sessionStorage.type = "success";
                     showMessage();
-                    // location.reload();    
+                    // location.reload();    loader1_
                 }
 
             }

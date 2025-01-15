@@ -374,7 +374,9 @@ class Database
                 'ip_address'=>$audit_data['ip_address'],
                 'session_id'=>$audit_data['server_session_id']
                 );
+                     // print_r($insert_audit_data); exit;
                 $this->insert('tbl_audit_trail',$insert_audit_data);
+
     }
 
     public function getTotalLeave($user_id,$leave_type_id){

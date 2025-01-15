@@ -33,7 +33,7 @@
                                 <li><a class="dropdown-item" href="computerLab.php">Computer Laboratory </a></li>
                                 <li><a class="dropdown-item" href="library.php">Library</a></li>
                                 <li><a class="dropdown-item" href="hostel.php">Hostel</a></li>
-                                <li><a class="dropdown-item" href="guesthouse.php">Guest House</a></li>
+                                <!-- <li><a class="dropdown-item" href="guesthouse.php">Guest House</a></li> -->
                             </ul>
                         </li>
                         <li><a class="dropdown-item" href="directors.php">Director's Desk</a></li>

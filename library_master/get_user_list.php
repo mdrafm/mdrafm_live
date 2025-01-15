@@ -46,7 +46,9 @@ if(isset($_POST['action']) && $_POST['action']=='user_list')
     $db->select('tbl_book_request_issue',"tbl_bk_reqst.*,tbl_book_details.book_name,tbl_book_details.author_name,tbl_bk_ref.reference_no",' tbl_bk_reqst join 
     tbl_book_details on tbl_bk_reqst.book_id=tbl_book_details.id left join 
     tbl_book_reference_no tbl_bk_ref on tbl_bk_ref.id=tbl_bk_reqst.bk_ref_id','user_id= "'.$bk_user_id.'" and tbl_bk_reqst.status= "'.$data.'"',null,null);
+
                           $res_req= $db->getResult();
+                          //print_r($res_req);exit;
                           $sl_n=1;
                           foreach($res_req as $reslt)
                           {
@@ -273,6 +275,7 @@ function get_user_issue_return_data(data,bk_user_id,email)
         data: { 'action':'user_list','data':data,'bk_user_id':bk_user_id,'email':email},
         success: function(res) {
            console.log(res);
+           //alert(res);
            $('#data_bind').html(res);
             let elm = res.split('#');
             if (elm[0] == "success") {

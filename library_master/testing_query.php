@@ -1,8 +1,30 @@
 
 <?php
-include '../admin/database.php'; 
-$db = new Database(); 
-
+// include '../admin/database.php'; 
+// $db = new Database(); 
+// $sql = "SELECT * FROM `tbl_book_request_issue` WHERE `return_date`>='2024-12-26' and status=4";
+// $db->select_sql($sql);
+// $res_return= $db->getResult();
+// //print_r($res_return);
+// foreach($res_return as $row)
+//  {
+//       //SELECT * FROM `tbl_book_request_issue` WHERE `request_date` between '2024-12-26' and '2025-01-02'
+//       $sql1 = "SELECT * FROM `tbl_book_request_issue` WHERE bk_ref_id='".$row['bk_ref_id']."' and status='2'";
+//       $db->select_sql($sql1);
+//       $res_rwq=$db->getResult();
+//       if(empty($res_rwq))
+//       {
+//          $sql_updt = "update tbl_book_reference_no set status=0 where id='".$row['bk_ref_id']."'";
+//          $db->update_dir($sql_updt);
+//          //$sql2 = "SELECT * FROM `tbl_book_reference_no` WHERE id=".$row['bk_ref_id'];
+//          //$res_test=$db->select_sql($sql2);
+//        // print_r($res_test);
+//       }
+//       //$sql = "SELECT * FROM `tbl_book_reference_no` WHERE id=".$row['bk_ref_id'];
+//       //$db->select_sql($sql);
+//       //$res_test= $db->getResult();
+//       //print_r($res_test);
+//  }
 //  $sql = "SELECT * FROM `tbl_post_trng_feedback_data` where feedback_name_id = 7 group by post_feedback_id having count(post_feedback_id) > 1";
 //  $db->select_sql($sql);
 // $res_fdb = $db->getResult();
@@ -61,33 +83,33 @@ $db = new Database();
 //       }
 //  }
 
-$sql = "SELECT * FROM `tbl_dept_trainee_registration` where program_id = 92";
-$db->select_sql($sql);
-$res_tranie = $db->getResult();
-//print_r($res_tranie);exit;
-foreach($res_tranie as $row)
- {
-       $mobile= trim($row['phone']);
-       if(!empty($mobile))
-       {
-          $sql = "SELECT id,username FROM tbl_user WHERE username= '".$mobile."'";
-          $db->select_sql($sql);
-          $res_count_user = $db->getResult();
-          //print_r($res_count_user);exit;
-       foreach($res_count_user as $res)
-       {
-        $user_id=$res['id'];
-        $username=trim($res['username']);
-        if(!empty($username))
-        {
-          $sql_updt = "update tbl_dept_trainee_registration set user_id='".$user_id."' where phone='".$username."' and program_id = 92";
-          $db->update_dir($sql_updt);
-          $res2 = $db->getResult();
-          print_r($res2);
-        }
-       }
-      }
- }
+// $sql = "SELECT * FROM `tbl_dept_trainee_registration` where program_id = 29";
+// $db->select_sql($sql);
+// $res_tranie = $db->getResult();
+// //print_r($res_tranie);exit;
+// foreach($res_tranie as $row)
+//  {
+//        $mobile= trim($row['phone']);
+//        if(!empty($mobile))
+//        {
+//           $sql = "SELECT id,username FROM tbl_user WHERE username= '".$mobile."'";
+//           $db->select_sql($sql);
+//           $res_count_user = $db->getResult();
+//           //print_r($res_count_user);exit;
+//        foreach($res_count_user as $res)
+//        {
+//         $user_id=$res['id'];
+//         $username=trim($res['username']);
+//         if(!empty($username))
+//         {
+//           $sql_updt = "update tbl_dept_trainee_registration set user_id='".$user_id."' where phone='".$username."' and program_id = 29";
+//           $db->update_dir($sql_updt);
+//           $res2 = $db->getResult();
+//           print_r($res2);
+//         }
+//        }
+//       }
+//  }
 
 // $sql1 = "SELECT acc_no,book_name,author_name FROM csv_book_edit";
 //  $db->select_sql($sql1);

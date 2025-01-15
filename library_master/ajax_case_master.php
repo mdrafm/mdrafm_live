@@ -65,9 +65,10 @@ if (isset($_POST['action']) && $_POST['action'] == 'add_master') {
 if (isset($_POST['action']) && $_POST['action'] == 'book_request') {
 
       $update_id = $_POST['update_id'];
-      $table = $_POST['table'];
+     $table = $_POST['table']; 
       //update
       if ($update_id != '') {
+        
         $db->update($table, $frm_data, 'id=' . $update_id);
         $res = $db->getResult();
 
@@ -80,10 +81,13 @@ if (isset($_POST['action']) && $_POST['action'] == 'book_request') {
       }
       //add
       else {
+
         if (!empty($user_id)) {
+          //print_r($frm_data);
           $db->insert($table, $frm_data);
+         // print_r($db); exit;
           $res = $db->getResult();
-          //print_r($res);
+          
           if ($res) {
             $db->insert_audit_trail_details($table, 'Successfully Requested', 1);
             echo "success#" . $res[1];
@@ -206,6 +210,7 @@ if (isset($_POST['action']) && $_POST['action'] == 'update_issue_tbl') {
 if (isset($_POST['action']) && $_POST['action'] == 'inesrt_book_details') {
   if (isset($frm_data["csrf_token"]) && isset($_SESSION["csrf_token"]) && $frm_data["csrf_token"] == $_SESSION["csrf_token"]) {
     //echo 123;
+    //print_r($_POST); 
     //print_r($frm_data); exit;
     unset($frm_data['csrf_token']);
 
@@ -291,6 +296,7 @@ if (isset($_POST['action']) && $_POST['action'] == 'inesrt_book_details') {
             );
             $db->insert($table2, $frm_data2);
             $res2 = $db->getResult();
+            //print_r($db);
           }
           if ($res2) {
             $db->insert_audit_trail_details($table2, 'Successfully Inserted', 1);
@@ -391,9 +397,9 @@ if (isset($_POST['action']) && $_POST['action'] == 'update_return_tbl') {
       if ($return_date < $issue_date) {
         echo "error#Return date should be greater than issue date";
       } else {
-        $db->update($table1, ["return_date" => $return_date, "fine" => $fine, "status" => 4], 'id= "'.$bk_req_id.'" and user_id= "'.$bk_user_id.'"');
+       $db->update($table1, ["return_date" => $return_date, "fine" => $fine, "status" => 4], 'id= "'.$bk_req_id.'" and user_id= "'.$bk_user_id.'"');
         $res = $db->getResult();
-        $db->update($table2, ["status" => 0], 'reference_no=' . $book_ref_number);
+        $db->update($table2, ["status" => 0], 'reference_no="'.$book_ref_number.'"');
         $res2 = $db->getResult();
         if ($res) {
           echo "success#" . $res[1];

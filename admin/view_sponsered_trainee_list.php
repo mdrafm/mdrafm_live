@@ -99,17 +99,18 @@
                                             <?php
 
 
-        $count = 0;
+        $count = 0; 
+        //print_r($_POST);
 
-       $porg_id = $_POST["id"];
-        $trng_type = $_POST["trng_type"];
-        if($trng_type == 5 || $trng_type == 3 || $trng_type == 7 || $trng_type == 8){
+     $porg_id = $_POST["id"];
+       $trng_type = $_POST["trng_type"];
+        if($trng_type == 5 || $trng_type == 3 || $trng_type == 7 || $trng_type == 4){
             $tbl_trainne_list = 'tbl_dept_trainee_registration';
         }else{
             $tbl_trainne_list = 'tbl_mid_trainee_registration';
         }
 
-        $db->select($tbl_trainne_list, "*", null, " trng_type = '$trng_type' AND program_id =" . $porg_id, null, null);
+        $db->select($tbl_trainne_list, "*", null, " trng_type = '$trng_type' AND program_id ='$porg_id'", null, null);
                   
        // print_r( $db->getResult());
         foreach ($db->getResult() as $row) {

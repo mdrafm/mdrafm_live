@@ -45,7 +45,7 @@
 <div class="pcoded-content">
 <div class="row" > 
 		<div class="col-lg-7">
-			<div class="alert-success shadow my-3" role="alert" style="border-radius: 0px;float:right !important" id="alert_msg">
+			<div class="alert-success shadow my-3" role="alert" style="border-radius: 0px;float:right !important;margin-top:10%" id="alert_msg">
 			</div>
 		</div>  
         </div>
@@ -131,7 +131,7 @@ placeholder="Accession Number " required>
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
 
-<script src="../js/case.js"> </script>
+<!-- <script src="../js/case.js"> </script> -->
 <script type="text/javascript">
 $( document ).ready(function() {
     var book_type = $('#book_type option:selected').text();
