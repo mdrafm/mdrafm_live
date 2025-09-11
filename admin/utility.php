@@ -19,20 +19,20 @@ class Utility{
             // set mailer to use smtp
             $mail->isSMTP();
             //define smtp host
-           $mail->Host = "apps.odishaone.gov.in";
+           $mail->Host = "";
              //enable smtp authentication
              $mail->SMTPAuth ="true";
              //set type of encryption(ssl/tls)
              $mail-> Port = "25";
              $mail->SMTPSecure = "tls";
              //set gmail Username
-             $mail->Username = "mdrafm@odishaone.gov.in";
+             $mail->Username = "";
              //set gmail password
-             $mail->Password = "FHJ89#$@!31&&Q";
+             $mail->Password = "";
 
             
              //Set sender email
-             $mail->setFrom("mdrafm@odishaone.gov.in");
+             $mail->setFrom("");
              $mail->FromName = "MDRAFM";
              //$mail->SMTPDebug  = 1;
 
